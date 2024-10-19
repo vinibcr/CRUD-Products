@@ -9,6 +9,7 @@ Este é um projeto Java Spring que implementa uma API RESTful para gerenciar pro
 - **Spring Data JPA**
 - **H2 Database** (banco de dados em memória)
 - **Maven**
+- **Postman**
 
 ## Estrutura do Projeto
 
