@@ -54,4 +54,20 @@ public class ProductController {
         productService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
+    // NEW: Buscar produtos por intervalo de preço
+    @GetMapping("/search/price")
+    public ResponseEntity<List<Product>> getProductsByPriceRange(
+            @RequestParam(name = "minPrice", required = false, defaultValue = "0") double minPrice,
+            @RequestParam(name = "maxPrice", required = false, defaultValue = "10000") double maxPrice) {
+    
+        List<Product> products = productService.findByPriceBetween(minPrice, maxPrice);
+        
+        if (products.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        
+        return ResponseEntity.ok(products);
+    }
+    
 }

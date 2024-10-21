@@ -29,4 +29,8 @@ public class ProductService {
     public void deleteById(Long id) {
         productRepository.deleteById(id);
     }
+      // NEW: Buscar produtos por intervalo de preço
+      public List<Product> findByPriceBetween(double minPrice, double maxPrice) {
+        return productRepository.findByPriceBetween(minPrice, maxPrice);
+    }
 }
